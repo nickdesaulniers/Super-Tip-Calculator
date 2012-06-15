@@ -64,6 +64,7 @@ var content_types = {
   webapp: 'application/x-web-app-manifest+json',
   png: 'image/png',
   gif: 'image/gif',
+  jpg: 'image/jpeg',
   manifest: 'text/cache-manifest'
 }
 /* Here we can use express to serve files as well.  Note how you must set the
