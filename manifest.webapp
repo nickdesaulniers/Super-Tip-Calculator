@@ -3,7 +3,12 @@
 	"name": "Super Tip Calculator",
 	"description": "A simple way to claculate the tip.",
 	"icons": {
-		"16": "/favicon.ico"
+		"16": "icon16.jpg",
+		"32": "icon32.jpg",
+		"48": "icon48.jpg",
+		"64": "icon64.jpg",
+		"128": "icon128.jpg",
+		"256": "icon256.jpg"
 	},
 	"developer": {
 		"name": "Nick Desaulniers",
