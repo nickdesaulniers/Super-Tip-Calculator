@@ -65,6 +65,7 @@ var content_types = {
   png: 'image/png',
   gif: 'image/gif',
   jpg: 'image/jpeg',
+  ico: 'image/x-icon',
   manifest: 'text/cache-manifest'
 }
 /* Here we can use express to serve files as well.  Note how you must set the
