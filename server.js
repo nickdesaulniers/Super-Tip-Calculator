@@ -2,16 +2,26 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+function require_fail_handler (package_name) {
+  console.log('Error: This example requires the ' + package_name +
+    ' package. Please run:');
+  console.log('npm install ' + package_name);
+  process.exit(1);
+}
+
 try {
   var express = require('express');
 } catch (err) {
-  console.log('Error: This example requires the express package. Please run:');
-  console.log('npm install express');
-  process.exit(1);
+  require_fail_handler('express');
 }
 var app = express.createServer();
-// Note the relative path because we are in the example directory.
-var Verifier = require('../receiptverifier').receipts.Verifier;
+
+try {
+  var Verifier = require('receiptverifier').receipts.Verifier;
+} catch (err) {
+  require_fail_handler('receiptverifier');
+}
+
 
 /* This block is needed to parse the HTTP POST body.  It also needs to go
  * before any routes are defined! */
@@ -19,7 +29,7 @@ app.configure(function () {
   app.use(express.bodyParser());
 });
 
-var isEmpty = function (obj) {
+function isEmpty (obj) {
   return Object.keys(obj).length === 0;
 }
 
@@ -30,15 +40,11 @@ app.post('/', function (req, res) {
    * files. */
   var myVerifier = new Verifier({ onlog: console.log });
 
-  // Log the request body.
-  //console.log(req.body);
   myVerifier.verifyReceipts(req.body, function (verifier) {
     verifier.app = req.body;
     
     // Log the verifier object after verification.
     console.log(verifier);
-    // Log the result for the verification.
-    //console.log(verifier.state.toString());
     if (verifier.state.toString() === '[OK]' && isEmpty(verifier.receiptErrors)) {
       console.log('Verification success!');
       res.send('{ receiptState: ' + verifier.state.toString() + '}',
