@@ -1,0 +1,12 @@
+{
+	"version": "0.1",
+	"name": "Super Tip Calculator",
+	"description": "A simple way to claculate the tip.",
+	"icons": {
+		"16": "/favicon.ico"
+	},
+	"developer": {
+		"name": "Nick Desaulniers",
+		"url": "http://lostoracle.net"
+	}
+}

@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			Super Tip Calculator
+		</title>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+		<link href="/style.css" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="/cache.js"></script>
+		<script src="/connectivity.js"></script>
+		<script src="/script.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			<div>
+				<p>
+					Bill Total: &#36;<input type="text" id="sub_total" disabled="true" />
+				</p>
+			</div>
+			<div id="info">
+				<hr />
+				<p>
+					Tip &#40;<span id="tip_percent">15</span>&#37;&#41;&#58;
+					&#36;<span id="tip"></span>
+				</p>
+				<p>
+				  <span class="hint">
+				    Change Tip
+				  </span>
+				  <input type="button" value="+" id="increment_tip" />
+  				<input type="button" value="-" id="decrement_tip" />
+				</p>
+				<p>
+					Total:
+					&#36;<span id="total"></span>
+				</p>
+			</div>
+		</div>
+		<div id="ajax_spinner" class="center">
+		  <img src="/ajax-loader.gif" alt="ajax-spinner">
+  		<span class="hint">
+  		  Verifying Receipt
+  		</span>
+		</div>
+	</body>
+</html>

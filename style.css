@@ -1,0 +1,42 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', Georgia, Arial, Helvetica;
+	background: url("/background.png") repeat-x;
+}
+p {
+  margin: 3px 0px;
+}
+input[type="text"] {
+	width: 50px;
+}
+input[type="text"]:disabled {
+  background: #CCC;
+}
+#info {
+	display: none;
+}
+#content {
+	width: 200px;
+	margin: 10px auto 0 auto;
+	padding: 10px;
+	background: #FFC;
+	-moz-box-shadow: 5px 5px 5px 5px #888;
+  -webkit-box-shadow: 5px 5px 5px 5px #888;
+  box-shadow: 5px 5px 5px 5px #888;
+  border: 1px solid #BDC6D7;
+}
+#ajax_spinner {
+  margin-top: 20px;
+}
+.hint {
+  font-size: 10px;
+  color: #888;
+}
+.center {
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
