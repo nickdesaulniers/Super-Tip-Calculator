@@ -43,29 +43,42 @@ $(document).ready(function () {
 		}
 		
 		function verification_success (data, text_status, jqXHR) {
-		  stop_spinner();
+		  //stop_spinner();
 		  //console.log(data);
 	    //console.log(text_status);
 	    //console.log(jqXHR);
 	    if (jqXHR.status == 200) {
-        // Events
-  			$('#sub_total').change(calculate_total).keyup(function (e) {
-  			  if ((e.keyCode || e.which) == 13) calculate_total();
-  			});
-  			$('#increment_tip').click(function () {
-  			  change_tip(1);
-  			});
-  			$('#decrement_tip').click(function () {
-  			  change_tip(-1);
-  			});
-  			document.getElementById('sub_total').removeAttribute('disabled');
+	      //console.log(jqXHR.responseText.length);
+	      
+	      // This is shit I know but it's a quick hack for my demo
+	      if (jqXHR.responseText.length > 60) {
+	        verification_failure();
+	      } else {
+	        stop_spinner();
+	        // Events
+    			$('#sub_total').change(calculate_total).keyup(function (e) {
+    			  if ((e.keyCode || e.which) == 13) calculate_total();
+    			});
+    			$('#increment_tip').click(function () {
+    			  change_tip(1);
+    			});
+    			$('#decrement_tip').click(function () {
+    			  change_tip(-1);
+    			});
+    			document.getElementById('sub_total').removeAttribute('disabled');
+	      }
   		} else {
 	      alert('Non 200 success message on verification: ' + jqXHR.status);
 	    }
 		}
 		
 		function verification_failure () {
-		  
+		  var ajax_spinner_ele = document.getElementById('ajax_spinner');
+		  ajax_spinner_ele.innerHTML = '';
+		  var span = document.createElement('span');
+		  span.setAttribute('class', 'hint red');
+		  span.appendChild(document.createTextNode('Invalid Receipt'));
+		  ajax_spinner_ele.appendChild(span);
 		}
 
 		// Install code
@@ -114,7 +127,7 @@ $(document).ready(function () {
 		window.addEventListener('connection_timeout', function () {
 		  console.log('timeout');
 		});
-		//Connectivity.poll('cache.manifest', 1000, 5000, true);
+		Connectivity.poll('cache.manifest', 1000, 5000, true);
 		
   })();
 });
