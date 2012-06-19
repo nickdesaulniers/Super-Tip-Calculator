@@ -71,11 +71,22 @@ var content_types = {
 /* Here we can use express to serve files as well.  Note how you must set the
  * content type to 'application/x-web-app-manifest+json' for webapp
  * manifests! */
-app.get('/:filename', function (req, res, next) {
-  res.contentType(content_types[req.params.filename.split('.')[1]]);
-  res.sendfile(req.params.filename);
-  console.log('Serving: ' + req.params.filename);
-});
+function file_serve (req, res) {
+  var file_handle = req.params.filename;
+  if (typeof file_handle !== 'undefined' && file_handle !== null) {
+    res.contentType(content_types[file_handle.split('.')[1]]);
+    if (req.path.match(/\/images\//)) {
+      file_handle = 'images/' + file_handle;
+    }
+    res.sendfile(file_handle);
+    console.log('Serving: ' + file_handle);
+  } else {
+    console.log('Error: no filename specified.');
+    res.send(400);
+  }
+}
+app.get('/:filename', file_serve);
+app.get('/images/:filename', file_serve);
 app.get('/', function (req, res) {
   res.sendfile('index.html');
 });
