@@ -2,11 +2,13 @@ CACHE MANIFEST
 
 # Cache Manifest Version: 0.0.1
 
-./ajax-loader.gif
-./background.png
-./cache.js
-./script.js
-./style.css
+images/ajax-loader.gif
+images/background.png
+script.js
+cache.js
+connectivity.js
+style.css
 
 NETWORK:
-./cache.manifest
+cache.manifest
+*
