@@ -2,7 +2,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Open Sans', Georgia, Arial, Helvetica;
-	background: url("background.png") repeat-x;
+	background: url("images/background.png") repeat-x;
 }
 p {
   margin: 3px 0px;
