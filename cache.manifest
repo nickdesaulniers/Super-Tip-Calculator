@@ -4,6 +4,7 @@ CACHE MANIFEST
 
 images/ajax-loader.gif
 images/background.png
+jquery-1-7-2-min.js
 script.js
 cache.js
 connectivity.js
