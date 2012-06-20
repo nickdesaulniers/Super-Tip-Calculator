@@ -2,6 +2,7 @@ CACHE MANIFEST
 
 # Cache Manifest Version: 0.0.1
 
+fonts/open_sans.woff
 images/ajax-loader.gif
 images/background.png
 jquery-1-7-2-min.js

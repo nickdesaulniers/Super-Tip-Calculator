@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url('fonts/open_sans.woff') format('woff');
+}
 body {
 	margin: 0px;
 	padding: 0px;
@@ -18,16 +24,13 @@ input[type="text"]:disabled {
 }
 #content {
 	width: 200px;
-	margin: 10px auto 0 auto;
+	margin: 20px auto 20px;
 	padding: 10px;
 	background: #FFC;
 	-moz-box-shadow: 5px 5px 5px 5px #888;
   -webkit-box-shadow: 5px 5px 5px 5px #888;
   box-shadow: 5px 5px 5px 5px #888;
   border: 1px solid #BDC6D7;
-}
-#ajax_spinner {
-  margin-top: 20px;
 }
 .hint {
   font-size: 10px;
